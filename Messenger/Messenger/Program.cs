@@ -108,5 +108,11 @@ namespace Messenger
 
         }
 
+        static void Init()
+        {
+            const string url = "https://localhost:7143/";
+
+        }
+
     }
 }
