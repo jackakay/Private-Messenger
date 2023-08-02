@@ -10,7 +10,7 @@ namespace Server
         public DB(string filename)
         {
             bool test = false;
-            if (File.Exists(filename))
+            if (File.Exists("db.json"))
             {
                 string db = File.ReadAllText(filename);
 
@@ -31,10 +31,10 @@ namespace Server
                         List<Message> messages = new List<Message>();
                         for (int k = 0; k < 5; k++)
                         {
-                            Message message = new Message { sender = "testuser", content = "content" };
+                            Message message = new Message { sender = "testuser", content = "content", reciever="reciever" };
                             messages.Add(message);
                         }
-                        Conversation conversation = new Conversation {messages=messages };
+                        Conversation conversation = new Conversation {messages=messages, user1="testuser", user2="reciever" };
                         conservations.Add(conversation);
                         
                     }
@@ -42,7 +42,8 @@ namespace Server
                     User user1 = new User { 
                         user = "testuser", friends = new List<string>(),
                         conversations = conservations,
-                        id = i
+                        id = i,
+                        password= "password"
                     };
                     root.users.users.Add(user1);
                     
@@ -65,12 +66,15 @@ namespace Server
     public class Conversation
     {
         public List<Message> messages { get; set; }
+        public string user1 { get; set; }
+        public string user2 { get; set; }
     }
 
     public class Message
     {
         public string content { get; set; }
         public string sender { get; set; }
+        public string reciever { get; set; }
     }
 
     public class Root
@@ -81,9 +85,10 @@ namespace Server
     public class User
     {
         public string user { get; set; }
+        public string password { get; set; }
         public int id { get; set; }
         public List<string> friends { get; set; }
         public List<Conversation> conversations { get; set; }
-        public List<User> users { get; set; }
+        
     }
 }
