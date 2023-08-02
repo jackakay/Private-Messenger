@@ -10,8 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-DB db = new DB("db.json");
-
+Globals.Init();
+ 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

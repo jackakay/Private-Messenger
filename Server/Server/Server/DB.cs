@@ -3,14 +3,14 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Server
-{
+{/*
     public class DB
     {
         public Root root = new Root();
         public DB(string filename)
         {
             bool test = false;
-            if (File.Exists("db.json"))
+            if (File.Exists(filename))
             {
                 string db = File.ReadAllText(filename);
 
@@ -21,7 +21,7 @@ namespace Server
             {
                 
                 //populating the db
-                root.users = new Users();
+                root.users = new List<User>();
                 for(int i = 0; i< 5; i++){
 
                     List<Conversation> conservations = new List<Conversation>();
@@ -45,21 +45,23 @@ namespace Server
                         id = i,
                         password= "password"
                     };
-                    root.users.users.Add(user1);
+                    root.users.Add(user1);
                     
                     
 
                 }
                 string json = JsonConvert.SerializeObject(this, Formatting.Indented);
                 Console.WriteLine(json);
-                //File.Create(filename);
+               
+               
                 File.WriteAllText(filename, json);
+                
             }
             
             
         }
     }
-    public class Users {
+    public class Root {
         public List<User> users = new List<User>();
     }
 
@@ -77,10 +79,7 @@ namespace Server
         public string reciever { get; set; }
     }
 
-    public class Root
-    {
-        public Users? users { get; set; }
-    }
+    
 
     public class User
     {
@@ -91,4 +90,53 @@ namespace Server
         public List<Conversation> conversations { get; set; }
         
     }
+    */
+
+    public class Conversation
+    {
+        public List<Message> messages { get; set; }
+        public string user1 { get; set; }
+        public string user2 { get; set; }
+    }
+
+    public class Message
+    {
+        public string content { get; set; }
+        public string sender { get; set; }
+        public string reciever { get; set; }
+    }
+
+    public class Root
+    {
+        public Root2 root { get; set; }
+    }
+
+    public class Root2
+    {
+        public List<User> users { get; set; }
+    }
+
+    public class User
+    {
+        public string user { get; set; }
+        public string password { get; set; }
+        public int id { get; set; }
+        public List<string> friends { get; set; }
+        public List<Conversation> conversations { get; set; }
+    }
+
+    public class loginClass
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+        public string friend { get; set; }
+    }
+    public class message
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+        public string content { get; set; }
+        public string friend { get; set; }
+    }
+
 }
