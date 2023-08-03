@@ -10,14 +10,14 @@
           {
             "messages": [
               {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
+                "content": "hello",
+                "sender": "yo",
+                "reciever": "testuser"
               },
               {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
+                "content": "hi",
+                "sender": "yo",
+                "reciever": "testuser"
               },
               {
                 "content": "content",
@@ -36,7 +36,7 @@
               }
             ],
             "user1": "testuser",
-            "user2": "reciever"
+            "user2": "yo"
           },
           {
             "messages": [
@@ -67,7 +67,7 @@
               }
             ],
             "user1": "testuser",
-            "user2": "reciever"
+            "user2": "chanz"
           },
           {
             "messages": [
@@ -98,7 +98,7 @@
               }
             ],
             "user1": "testuser",
-            "user2": "reciever"
+            "user2": "oliver"
           },
           {
             "messages": [

@@ -26,8 +26,9 @@ namespace Server.Controllers
                         if (convo.user1 == newlogin.friend || convo.user2 == newlogin.friend)
                         {
                             string json = JsonConvert.SerializeObject(convo);
-                            return Ok(json);
                             success = true;
+                            return Ok(json);
+                            
                         }
                     }
 

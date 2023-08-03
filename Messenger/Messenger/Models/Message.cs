@@ -10,7 +10,13 @@ namespace Messenger.Models
     {
         public string content { get; set; }
         public string sender { get; set; }
-        public int id { get; set; }
+        public string reciever { get; set; }
 
+    }
+    public class Conversation
+    {
+        public List<Message> messages { get; set; }
+        public string user1 { get; set; }
+        public string user2 { get; set; }
     }
 }

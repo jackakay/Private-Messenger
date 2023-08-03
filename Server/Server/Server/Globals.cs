@@ -8,6 +8,7 @@ namespace Server
         public static void Init()
         {
             db = JsonConvert.DeserializeObject<Root>(File.ReadAllText("db.json"));
+            Console.WriteLine(File.ReadAllText("db.json"));
             Console.WriteLine("Success");
     }
     }

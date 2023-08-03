@@ -16,6 +16,8 @@ namespace Messenger
     class Program
     {
         const string url = "https://localhost:5001/";
+        static List<string> ListOfFriends = new List<string>();
+        
 
         [DllImport("user32.dll")]
         public static extern bool GetAsyncKeyState(int vKey);
@@ -37,10 +39,11 @@ namespace Messenger
                 loggedIn = await loginAsync(username, password);
                 if (loggedIn)
                 {
-                    
+                    ListOfFriends = await getFriendsAsync(username, password);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("[+] SUCCESS");
                     Thread.Sleep(1000);
+                    
                     Menu(user);
 
                 }
@@ -60,7 +63,7 @@ namespace Messenger
         {
             //API request to check if username exists
 
-            var options = new RestClientOptions("https://localhost:7143")
+            var options = new RestClientOptions(url)
             {
                 MaxTimeout = -1,
             };
@@ -86,6 +89,40 @@ namespace Messenger
                 return false;
             }
         }
+
+        static async Task<List<string>> getFriendsAsync(string username, string password)
+        {
+            var options = new RestClientOptions(url)
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/api/GetFriends?Content-Type=Application/json", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            var body = @"{
+" + "\n" +
+             @"    ""username"":" + '"' + username + '"' + ","
+  + "\n" +
+             @"    ""password"":" + '"' + password + '"' +
+
+             @"}";
+            request.AddStringBody(body, DataFormat.Json);
+            RestResponse response = await client.ExecuteAsync(request);
+            List<string> friends = new List<string>();
+            if (!String.IsNullOrEmpty(response.Content))
+            {
+                string json = response.Content;
+                json = json.Substring(1, response.Content.Length - 2).Replace("/", string.Empty).Replace(@"\", string.Empty);
+                
+                friends = JsonConvert.DeserializeObject<List<string>>(json);
+                
+            }
+            
+            return friends;
+        }
+
+        
+
         static void Menu(User user)
         {
             int currentTab = 0;
@@ -96,14 +133,25 @@ namespace Messenger
 
                 if (GetAsyncKeyState(38)){
                     if (currentTab > 0)
-                    currentTab--;
-                    updateMenu(user, currentTab);
-                    //down arrow
+                    {
+                        currentTab--;
+                        updateMenu(user, currentTab);
+                    }
+                    else if (currentTab == 0)
+                    {
+
+                    }
+                    
+                    //up arrow
                 }else if (GetAsyncKeyState(40))
                 {
-                    //up arrow
-                    if(currentTab < user.friends.Count - 1)
-                    currentTab++;
+                    //down arrow
+                    if (currentTab < ListOfFriends.Count - 1)
+                    {
+                        currentTab++;
+                    }else if(currentTab == ListOfFriends.Count - 1) {
+                        currentTab = 0;
+                    }
                     updateMenu(user, currentTab);
                 }else if (GetAsyncKeyState(108))
                 {
@@ -114,7 +162,7 @@ namespace Messenger
                 {
                     Thread.Sleep(100);
                 }
-                Thread.Sleep(20);
+                Thread.Sleep(30);
                 
             }
         }
@@ -122,15 +170,15 @@ namespace Messenger
         {
             Console.Clear();
             int count = 0;
-            foreach (Friends friend in user.friends)
+            foreach (string friend in ListOfFriends)
             {
                 if (count == currentTab)
                 {
-                    Console.WriteLine(">" + friend.username);
+                    Console.WriteLine(">" + friend);
                 }
                 else
                 {
-                    Console.WriteLine(friend.username);
+                    Console.WriteLine(friend);
                 }
                 count++;
             }
