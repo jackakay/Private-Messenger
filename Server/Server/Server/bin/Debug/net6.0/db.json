@@ -5,7 +5,7 @@
         "user": "testuser",
         "password": "password",
         "id": 0,
-        "friends": [],
+        "friends": ["yo", "chanz", "oliver"],
         "conversations": [
           {
             "messages": [
