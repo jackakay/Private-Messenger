@@ -10,17 +10,19 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Collections.Specialized;
 using RestSharp;
+using System.Security.Cryptography;
+using System.Windows.Forms;
 
 namespace Messenger
 {
     class Program
     {
-        const string url = "https://localhost:5001/";
+        const string url = "https://localhost:7143/";
         static List<string> ListOfFriends = new List<string>();
         
 
         [DllImport("user32.dll")]
-        public static extern bool GetAsyncKeyState(int vKey);
+        public static extern bool GetAsyncKeyState(Keys key);
 
 
         static async Task Main()
@@ -120,10 +122,32 @@ namespace Messenger
             
             return friends;
         }
+        static async Task<Conversation> loadMessages(string username, string password, string friendsName)
+        {
+            var options = new RestClientOptions(url)
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/api/GetFriends?Content-Type=Application/json", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            var body = @"{
+" + "\n" +
+             @"    ""username"":" + '"' + username + '"' + ","
+  + "\n" +
+             @"    ""password"":" + '"' + password + '"' + ","
+             + @"    ""friend"":" + '"' + friendsName + '"' +
 
+             @"}";
+            request.AddStringBody(body, DataFormat.Json);
+            RestResponse response = await client.ExecuteAsync(request);
+            Conversation convo = new Conversation();
+            convo = JsonConvert.DeserializeObject<Conversation>(response.Content);
+            return convo;
+        }
         
 
-        static void Menu(User user)
+        static async void Menu(User user)
         {
             int currentTab = 0;
             Console.ForegroundColor = ConsoleColor.White;
@@ -131,7 +155,7 @@ namespace Messenger
             while (true)
             {
 
-                if (GetAsyncKeyState(38)){
+                if (GetAsyncKeyState(Keys.Up)){
                     if (currentTab > 0)
                     {
                         currentTab--;
@@ -143,7 +167,7 @@ namespace Messenger
                     }
                     
                     //up arrow
-                }else if (GetAsyncKeyState(40))
+                }else if (GetAsyncKeyState(Keys.Down))
                 {
                     //down arrow
                     if (currentTab < ListOfFriends.Count - 1)
@@ -153,10 +177,12 @@ namespace Messenger
                         currentTab = 0;
                     }
                     updateMenu(user, currentTab);
-                }else if (GetAsyncKeyState(108))
+                }else if (GetAsyncKeyState(Keys.Right))
                 {
-                    //enter key
-
+                    //right arrow
+                    //key
+                    
+                    await loadMessagesFuncAsync(user, currentTab);
                 }
                 else
                 {
@@ -181,6 +207,17 @@ namespace Messenger
                     Console.WriteLine(friend);
                 }
                 count++;
+            }
+        }
+        static async Task loadMessagesFuncAsync(User user, int currentTab)
+        {
+            Console.Clear();
+
+            Conversation convo = new Conversation();
+            convo = await loadMessages(user.user, user.password, ListOfFriends[currentTab]);
+            foreach (Models.Message msg in convo.messages)
+            {
+                Console.WriteLine(msg.sender + " -> " + msg.content);
             }
         }
         static void enterConversation(int currentTab, User user)
