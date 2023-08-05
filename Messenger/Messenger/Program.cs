@@ -12,12 +12,13 @@ using System.Collections.Specialized;
 using RestSharp;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Messenger
 {
     class Program
     {
-        const string url = "https://localhost:7143/";
+        const string url = "https://localhost:5001/";
         static List<string> ListOfFriends = new List<string>();
         
 
@@ -46,7 +47,7 @@ namespace Messenger
                     Console.WriteLine("[+] SUCCESS");
                     Thread.Sleep(1000);
                     
-                    Menu(user);
+                    await Menu(user);
 
                 }
                 else
@@ -129,7 +130,7 @@ namespace Messenger
                 MaxTimeout = -1,
             };
             var client = new RestClient(options);
-            var request = new RestRequest("/api/GetFriends?Content-Type=Application/json", Method.Post);
+            var request = new RestRequest("/api/LoadMessages?Content-Type=Application/json", Method.Post);
             request.AddHeader("Content-Type", "application/json");
             var body = @"{
 " + "\n" +
@@ -142,12 +143,14 @@ namespace Messenger
             request.AddStringBody(body, DataFormat.Json);
             RestResponse response = await client.ExecuteAsync(request);
             Conversation convo = new Conversation();
-            convo = JsonConvert.DeserializeObject<Conversation>(response.Content);
+            string json = response.Content;
+            json = json.Substring(1, response.Content.Length - 2).Replace("/", string.Empty).Replace(@"\", string.Empty);
+            convo = JsonConvert.DeserializeObject<Conversation>(json);
             return convo;
         }
         
 
-        static async void Menu(User user)
+        static async Task Menu(User user)
         {
             int currentTab = 0;
             Console.ForegroundColor = ConsoleColor.White;
@@ -181,8 +184,11 @@ namespace Messenger
                 {
                     //right arrow
                     //key
+                    Conversation convo = new Conversation();
+                    convo = await loadMessages(user.user, user.password, ListOfFriends[currentTab]);
+                    LoadConvo(convo);
+                    //Console.ReadKey();
                     
-                    await loadMessagesFuncAsync(user, currentTab);
                 }
                 else
                 {
@@ -192,6 +198,24 @@ namespace Messenger
                 
             }
         }
+
+        static void LoadConvo(Conversation convo)
+        {
+            Console.Clear();
+            foreach(Models.Message msg in convo.messages)
+            {
+                Console.WriteLine(msg.sender + " -> " + msg.content);
+            }
+
+            Console.SetCursorPosition(0, 40);
+            Console.Write("-> ");
+            while (!GetAsyncKeyState(Keys.Escape))
+            {
+                string message = Console.ReadLine();
+            }
+            
+        }
+
         static void updateMenu(User user, int currentTab)
         {
             Console.Clear();
@@ -208,18 +232,11 @@ namespace Messenger
                 }
                 count++;
             }
-        }
-        static async Task loadMessagesFuncAsync(User user, int currentTab)
-        {
-            Console.Clear();
+            
 
-            Conversation convo = new Conversation();
-            convo = await loadMessages(user.user, user.password, ListOfFriends[currentTab]);
-            foreach (Models.Message msg in convo.messages)
-            {
-                Console.WriteLine(msg.sender + " -> " + msg.content);
-            }
+
         }
+       
         static void enterConversation(int currentTab, User user)
         {
             Friends currentFriend = user.friends[currentTab];
