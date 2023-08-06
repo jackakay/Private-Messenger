@@ -19,4 +19,13 @@ namespace Messenger.Models
         public string user1 { get; set; }
         public string user2 { get; set; }
     }
+
+    public class message
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+        public string content { get; set; }
+        public string friend { get; set; }
+    }
+
 }

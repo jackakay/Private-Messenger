@@ -18,9 +18,10 @@ namespace Messenger
 {
     class Program
     {
-        const string url = "https://localhost:5001/";
-        static List<string> ListOfFriends = new List<string>();
         
+        static List<string> ListOfFriends = new List<string>();
+        const int WIDTH = 60;
+        const int HEIGHT = 40;
 
         [DllImport("user32.dll")]
         public static extern bool GetAsyncKeyState(Keys key);
@@ -29,7 +30,7 @@ namespace Messenger
         static async Task Main()
         {
 
-            Console.SetWindowSize(60, 40);
+            Console.SetWindowSize(WIDTH, HEIGHT);
             bool loggedIn = false;
             while (!loggedIn)
             {
@@ -39,10 +40,10 @@ namespace Messenger
                 Console.Write("PASSWORD: ");
                 string password = Console.ReadLine();
                 Models.User user = new Models.User(username, password);
-                loggedIn = await loginAsync(username, password);
+                loggedIn = await API.loginAsync(username, password);
                 if (loggedIn)
                 {
-                    ListOfFriends = await getFriendsAsync(username, password);
+                    ListOfFriends = await API.getFriendsAsync(username, password);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("[+] SUCCESS");
                     Thread.Sleep(1000);
@@ -62,92 +63,7 @@ namespace Messenger
             
         }
 
-        static async Task<bool> loginAsync(string username, string password)
-        {
-            //API request to check if username exists
-
-            var options = new RestClientOptions(url)
-            {
-                MaxTimeout = -1,
-            };
-            var client = new RestClient(options);
-            var request = new RestRequest("/api/login?Content-Type=Application/json", Method.Post);
-            request.AddHeader("Content-Type", "application/json");
-            var body = @"{
-" + "\n" +
-            @"    ""username"":" + '"' + username + '"' + "," 
- + "\n" + 
-            @"    ""password"":" + '"' + password + '"' + 
-
-            @"}";
-            request.AddStringBody(body, DataFormat.Json);
-            RestResponse response = await client.ExecuteAsync(request);
-            Console.WriteLine(response.Content);
-            if (response.Content == @"""Success""")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        static async Task<List<string>> getFriendsAsync(string username, string password)
-        {
-            var options = new RestClientOptions(url)
-            {
-                MaxTimeout = -1,
-            };
-            var client = new RestClient(options);
-            var request = new RestRequest("/api/GetFriends?Content-Type=Application/json", Method.Post);
-            request.AddHeader("Content-Type", "application/json");
-            var body = @"{
-" + "\n" +
-             @"    ""username"":" + '"' + username + '"' + ","
-  + "\n" +
-             @"    ""password"":" + '"' + password + '"' +
-
-             @"}";
-            request.AddStringBody(body, DataFormat.Json);
-            RestResponse response = await client.ExecuteAsync(request);
-            List<string> friends = new List<string>();
-            if (!String.IsNullOrEmpty(response.Content))
-            {
-                string json = response.Content;
-                json = json.Substring(1, response.Content.Length - 2).Replace("/", string.Empty).Replace(@"\", string.Empty);
-                
-                friends = JsonConvert.DeserializeObject<List<string>>(json);
-                
-            }
-            
-            return friends;
-        }
-        static async Task<Conversation> loadMessages(string username, string password, string friendsName)
-        {
-            var options = new RestClientOptions(url)
-            {
-                MaxTimeout = -1,
-            };
-            var client = new RestClient(options);
-            var request = new RestRequest("/api/LoadMessages?Content-Type=Application/json", Method.Post);
-            request.AddHeader("Content-Type", "application/json");
-            var body = @"{
-" + "\n" +
-             @"    ""username"":" + '"' + username + '"' + ","
-  + "\n" +
-             @"    ""password"":" + '"' + password + '"' + ","
-             + @"    ""friend"":" + '"' + friendsName + '"' +
-
-             @"}";
-            request.AddStringBody(body, DataFormat.Json);
-            RestResponse response = await client.ExecuteAsync(request);
-            Conversation convo = new Conversation();
-            string json = response.Content;
-            json = json.Substring(1, response.Content.Length - 2).Replace("/", string.Empty).Replace(@"\", string.Empty);
-            convo = JsonConvert.DeserializeObject<Conversation>(json);
-            return convo;
-        }
+        
         
 
         static async Task Menu(User user)
@@ -185,8 +101,8 @@ namespace Messenger
                     //right arrow
                     //key
                     Conversation convo = new Conversation();
-                    convo = await loadMessages(user.user, user.password, ListOfFriends[currentTab]);
-                    LoadConvo(convo);
+                    convo = await API.loadMessages(user.user, user.password, ListOfFriends[currentTab]);
+                    LoadConvo(convo, user, ListOfFriends[currentTab]);
                     //Console.ReadKey();
                     
                 }
@@ -199,22 +115,7 @@ namespace Messenger
             }
         }
 
-        static void LoadConvo(Conversation convo)
-        {
-            Console.Clear();
-            foreach(Models.Message msg in convo.messages)
-            {
-                Console.WriteLine(msg.sender + " -> " + msg.content);
-            }
-
-            Console.SetCursorPosition(0, 40);
-            Console.Write("-> ");
-            while (!GetAsyncKeyState(Keys.Escape))
-            {
-                string message = Console.ReadLine();
-            }
-            
-        }
+       
 
         static void updateMenu(User user, int currentTab)
         {
@@ -236,7 +137,30 @@ namespace Messenger
 
 
         }
-       
+
+
+        static void LoadConvo(Conversation convo, User user, string friendName)
+        {
+            Console.Clear();
+            foreach (Models.Message msg in convo.messages)
+            {
+                Console.WriteLine(msg.sender + " -> " + msg.content);
+            }
+
+            Console.SetCursorPosition(0, HEIGHT);
+            Console.Write("-> ");
+            while (!Program.GetAsyncKeyState(Keys.Escape))
+            {
+                string message = Console.ReadLine();
+                message msg = new message { content = message, friend = friendName, username = user.user, password = user.password };
+                if (!String.IsNullOrEmpty(message) && GetAsyncKeyState(Keys.Enter))
+                {
+
+                }
+            }
+
+        }
+
         static void enterConversation(int currentTab, User user)
         {
             Friends currentFriend = user.friends[currentTab];
