@@ -139,7 +139,7 @@ namespace Messenger
         }
 
 
-        static void LoadConvo(Conversation convo, User user, string friendName)
+        static async void LoadConvo(Conversation convo, User user, string friendName)
         {
             Console.Clear();
             foreach (Models.Message msg in convo.messages)
@@ -149,16 +149,34 @@ namespace Messenger
 
             Console.SetCursorPosition(0, HEIGHT);
             Console.Write("-> ");
-            while (!Program.GetAsyncKeyState(Keys.Escape))
+            while (true)
             {
-                string message = Console.ReadLine();
-                message msg = new message { content = message, friend = friendName, username = user.user, password = user.password };
-                if (!String.IsNullOrEmpty(message) && GetAsyncKeyState(Keys.Enter))
-                {
+                
+                    string message = Console.ReadLine();
 
+                    if (!String.IsNullOrEmpty(message))
+                    {
+                    string timestamp = DateTime.Now.ToString("hh:mm:ss tt");
+                    message msg = new message { content = timestamp + ": " + message, friend = friendName, username = user.user, password = user.password };
+
+                        bool result = await API.SendMessage(user.user, user.password, message, friendName);
+                        if (result)
+                        {
+                            LoadConvo(await API.loadMessages(user.user, user.password, friendName), user, friendName);
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("ERROR");
+                        }
+                    }
+                
+                if (Program.GetAsyncKeyState(Keys.Escape))
+                {
+                    break;
                 }
             }
-
+            updateMenu(user, 0);
         }
 
         static void enterConversation(int currentTab, User user)

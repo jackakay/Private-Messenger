@@ -24,7 +24,7 @@ namespace Server.Controllers
             bool loggedIn = false;
             loginClass newlogin = new loginClass();
             newlogin = JsonConvert.DeserializeObject<loginClass>(payload.ToString());
-            foreach (User user in Globals.db.root.users)
+            foreach (User user in Globals.db.users)
             {
                 if (newlogin.username == user.user && newlogin.password == user.password)
                 {

@@ -18,7 +18,7 @@ namespace Server.Controllers
             loginClass newlogin = new loginClass();
             newlogin = JsonConvert.DeserializeObject<loginClass>(payload.ToString());
 
-            foreach (User user in Globals.db.root.users)
+            foreach (User user in Globals.db.users)
             {
                 if (newlogin.username != user.user)
                 {
@@ -33,8 +33,8 @@ namespace Server.Controllers
             }
             if (success)
             {
-                User newUser = new User { user = newlogin.username, password = newlogin.password, friends = new List<string>(), conversations = new List<Conversation>() };
-                Globals.db.root.users.Add(newUser);
+                User newUser = new User { user = newlogin.username, password = newlogin.password, friends = new List<string>()};
+                Globals.db.users.Add(newUser);
                 UpdateDB.Update(Globals.db);
                 return Ok("Success");
             }

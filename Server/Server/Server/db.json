@@ -1,821 +1,138 @@
 {
-  "root": {
-    "users": [
-      {
-        "user": "testuser",
-        "password": "password",
-        "id": 0,
-        "friends": ["yo", "chanz", "oliver"],
-        "conversations": [
-          {
-            "messages": [
-              {
-                "content": "hello",
-                "sender": "yo",
-                "reciever": "testuser"
-              },
-              {
-                "content": "hi",
-                "sender": "yo",
-                "reciever": "testuser"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "yo",
-                "reciever": "reciever"s
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "yo"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "chanz"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "oliver"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          }
-        ]
-      },
-      {
-        "user": "testuser",
-        "password": "password",
-        "id": 1,
-        "friends": [],
-        "conversations": [
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          }
-        ]
-      },
-      {
-        "user": "testuser",
-        "password": "password",
-        "id": 2,
-        "friends": [],
-        "conversations": [
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          }
-        ]
-      },
-      {
-        "user": "testuser",
-        "password": "password",
-        "id": 3,
-        "friends": [],
-        "conversations": [
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          }
-        ]
-      },
-      {
-        "user": "testuser",
-        "password": "password",
-        "id": 4,
-        "friends": [],
-        "conversations": [
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          },
-          {
-            "messages": [
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              },
-              {
-                "content": "content",
-                "sender": "testuser",
-                "reciever": "reciever"
-              }
-            ],
-            "user1": "testuser",
-            "user2": "reciever"
-          }
-        ]
-      }
-    ]
-  }
+  "users": [
+    {
+      "user": "testuser",
+      "password": "password",
+      "friends": [
+        "yo",
+        "chanz",
+        "oliver"
+      ]
+    },
+    {
+      "user": "yo",
+      "password": "password",
+      "friends": [
+        "testuser"
+      ]
+    }
+  ],
+  "conversations": [
+    {
+      "messages": [
+        {
+          "content": "content",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "content",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "content",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "content",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "content",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "yo",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "a",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "aarggghhh",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "pee",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "argasdasdc",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "p",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "wagwan",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "a",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "payo",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "yooooo",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "jjk",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "yoo",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "asa",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "s",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "s",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "aga",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "asf",
+          "sender": "yo",
+          "reciever": "testuser"
+        }
+      ],
+      "user1": "testuser",
+      "user2": "yo"
+    }
+  ]
 }

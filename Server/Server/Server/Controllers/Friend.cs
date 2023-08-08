@@ -16,11 +16,11 @@ namespace Server.Controllers
         {
             bool success = false;
             loginClass newlogin = new loginClass();
-            foreach (User user in Globals.db.root.users)
+            foreach (User user in Globals.db.users)
             {
                 if (newlogin.username == user.user && newlogin.password == user.password)
                 {
-                    foreach (User friend in Globals.db.root.users)
+                    foreach (User friend in Globals.db.users)
                     {
                         if (newlogin.friend == friend.user)
                         {

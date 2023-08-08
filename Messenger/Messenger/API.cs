@@ -13,7 +13,7 @@ namespace Messenger
 {
     public static class API
     {
-        public const string url = "https://localhost:5001/";
+        public const string url = "https://localhost:7143/";
 
 
         public static async Task<bool> loginAsync(string username, string password)
@@ -118,7 +118,7 @@ namespace Messenger
   + "\n" +
              @"    ""password"":" + '"' + password + '"' + ","
              + @"    ""friend"":" + '"' + friend + '"' + "," +
-             @"""content"":" + '"' + content +
+             @"""content"":" + '"' + content + '"' +
 
              @"}";
             request.AddStringBody(body, DataFormat.Json);

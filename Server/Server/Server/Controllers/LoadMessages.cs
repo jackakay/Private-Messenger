@@ -17,13 +17,13 @@ namespace Server.Controllers
             bool success = false;
             loginClass newlogin = new loginClass();
             newlogin = JsonConvert.DeserializeObject<loginClass>(payload.ToString());
-            foreach (User user in Globals.db.root.users)
+            foreach (User user in Globals.db.users)
             {
                 if (newlogin.username == user.user && newlogin.password == user.password)
                 {
-                    foreach (Conversation convo in user.conversations)
+                    foreach (Conversation convo in Globals.db.conversations)
                     {
-                        if (convo.user1 == newlogin.friend || convo.user2 == newlogin.friend)
+                        if ((convo.user1 == newlogin.friend && convo.user2 == user.user) || (convo.user2 == newlogin.friend && convo.user1==user.user))
                         {
                             string json = JsonConvert.SerializeObject(convo);
                             success = true;

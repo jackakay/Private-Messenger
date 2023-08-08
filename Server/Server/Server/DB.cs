@@ -108,21 +108,15 @@ namespace Server
 
     public class Root
     {
-        public Root2 root { get; set; }
-    }
-
-    public class Root2
-    {
         public List<User> users { get; set; }
+        public List<Conversation> conversations { get; set; }
     }
 
     public class User
     {
         public string user { get; set; }
         public string password { get; set; }
-        public int id { get; set; }
         public List<string> friends { get; set; }
-        public List<Conversation> conversations { get; set; }
     }
 
     public class loginClass

@@ -19,11 +19,11 @@ namespace Server.Controllers
             message msg = new message();
             bool success = false;
             msg = JsonConvert.DeserializeObject<message>(payload.ToString());
-            foreach (User user in Globals.db.root.users)
+            foreach (User user in Globals.db.users)
             {
                 if (msg.username == user.user && msg.password == user.password)
                 {
-                    foreach (Conversation convo in user.conversations)
+                    foreach (Conversation convo in Globals.db.conversations)
                     {
                         if ((convo.user1 == msg.username && convo.user2 == msg.friend) || (convo.user1 == msg.friend && convo.user2 == msg.username))
                         {
