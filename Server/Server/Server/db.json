@@ -129,6 +129,16 @@
           "content": "asf",
           "sender": "yo",
           "reciever": "testuser"
+        },
+        {
+          "content": "hello how are you",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "hi",
+          "sender": "yo",
+          "reciever": "testuser"
         }
       ],
       "user1": "testuser",

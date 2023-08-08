@@ -1,5 +1,4 @@
 {
-
   "users": [
     {
       "user": "testuser",
@@ -13,7 +12,9 @@
     {
       "user": "yo",
       "password": "password",
-      "friends": [ "testuser" ]
+      "friends": [
+        "testuser"
+      ]
     }
   ],
   "conversations": [
@@ -63,11 +64,75 @@
           "content": "pee",
           "sender": "testuser",
           "reciever": "yo"
+        },
+        {
+          "content": "argasdasdc",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "p",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "wagwan",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "a",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "payo",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "yooooo",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "jjk",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "yoo",
+          "sender": "yo",
+          "reciever": "testuser"
+        },
+        {
+          "content": "asa",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "s",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "s",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "aga",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "asf",
+          "sender": "yo",
+          "reciever": "testuser"
         }
       ],
       "user1": "testuser",
       "user2": "yo"
     }
   ]
-
 }
