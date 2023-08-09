@@ -62,7 +62,40 @@ namespace Messenger
             
             
         }
+        public static void Clear(Conversation convo)
+        {
+            
+            
+            for (int i = convo.messages.Count; i < HEIGHT - 1; i++)
+            {
+                Console.SetCursorPosition(0, i);
+                Console.Write(new string(' ', Console.BufferWidth - Console.CursorLeft));
+                
+            }
+            Console.SetCursorPosition(0, 0);
+        }
+        public async static void LoadMessages(User user, string friendName)
+        {
+            
+           
+                while (true)
+                {
+                    int left = Console.CursorLeft;
+                    Conversation convo = new Conversation();
+                    convo = await API.loadMessages(user.user, user.password, friendName);
+                    Clear(convo);
+                    foreach (Models.Message msg in convo.messages)
+                    {
+                        Console.WriteLine(msg.sender + " -> " + msg.content);
+                    }
 
+                    Console.SetCursorPosition(0, HEIGHT);
+                    Console.Write("-> ");
+                    Console.SetCursorPosition(left, HEIGHT);
+                    Thread.Sleep(800);
+                }
+            
+        }
         
         
 
@@ -77,6 +110,7 @@ namespace Messenger
                 if (GetAsyncKeyState(Keys.Up)){
                     if (currentTab > 0)
                     {
+                       
                         currentTab--;
                         updateMenu(user, currentTab);
                     }
@@ -141,14 +175,13 @@ namespace Messenger
 
         static async void LoadConvo(Conversation convo, User user, string friendName)
         {
-            Console.Clear();
-            foreach (Models.Message msg in convo.messages)
+            Thread thread = new Thread(delegate ()
             {
-                Console.WriteLine(msg.sender + " -> " + msg.content);
-            }
+                LoadMessages(user, friendName);
+            });
+            thread.Start();
 
-            Console.SetCursorPosition(0, HEIGHT);
-            Console.Write("-> ");
+            Console.SetCursorPosition(3, HEIGHT);
             while (true)
             {
                 
@@ -162,7 +195,9 @@ namespace Messenger
                         bool result = await API.SendMessage(user.user, user.password, message, friendName);
                         if (result)
                         {
-                            LoadConvo(await API.loadMessages(user.user, user.password, friendName), user, friendName);
+                        Console.SetCursorPosition(0, HEIGHT);
+                        Console.Write(new string(' ', Console.BufferWidth - Console.CursorLeft));
+                        Console.SetCursorPosition(3, HEIGHT);
 
                         }
                         else
