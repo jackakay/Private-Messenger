@@ -5,3 +5,7 @@ When demonstrating how both the client and the server work I will use a single f
 ![login function from server](https://cdn.upload.systems/uploads/OAc5xui6.png)
 ## The client
 ![login function from client](https://cdn.upload.systems/uploads/MRmK9ifj.png)
+
+
+## Disclaimer
+Nothing is encrypted yet, i plan to do that later, this server has to be hosted locally as i cant figure out how to host it locally.
