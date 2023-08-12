@@ -10,19 +10,11 @@ namespace Server.Controllers
     [ApiController]
     public class login : ControllerBase
     {
-
-        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-
-
-
-
-       
-
         [HttpPost]
         public IActionResult Login(JObject payload)
         {
             bool loggedIn = false;
-            loginClass newlogin = new loginClass();
+            loginClass newlogin = new loginClass(); //loginClass has 3 members - username, password and friend(not necessary only for certain API calls)
             newlogin = JsonConvert.DeserializeObject<loginClass>(payload.ToString());
             foreach (User user in Globals.db.users)
             {
@@ -32,19 +24,10 @@ namespace Server.Controllers
                     Console.WriteLine("New login from user " + newlogin.username);
                     Console.ForegroundColor = ConsoleColor.White;
                     return Ok("Success");
-
                 }
-
             }
             Console.WriteLine("Fail login");
             return Ok("Fail");
-
         }
-
-
-
-
-
-
     }
 }
