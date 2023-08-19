@@ -7,5 +7,8 @@ When demonstrating how both the client and the server work I will use a single f
 ![login function from client](https://cdn.upload.systems/uploads/MRmK9ifj.png)
 
 
+##Video of it working
+https://uploadi.ng/yaCCv1bA
+
 ## Disclaimer
 Nothing is encrypted yet, i plan to do that later, this server has to be hosted locally as i cant figure out how to host it locally.
