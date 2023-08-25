@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8E1sc2Y0KkStDeG52W6v0gAAAAACAAAAAAAQZgAAAAEAACAAAADAuf3uZUxX8X0BNJDbM6UNoQ7uzxk/X9h0N0o/4fDpeAAAAAAOgAAAAAIAACAAAACZaZ+hnqaPDI10hM73pBfNh0bbPOhhbgTmaYIW3l/tDSAAAADwJFq2hXlMmTKSiiiF068SXyluBpSS8hW0c8cgg2gdCEAAAADE3kVkQUHrZUpq3gnEamNklttR5WC175NGC4Kx3cKt0JsaN+Y/TQ5UlugGByMqEmnse1r3An0is+d3OSffxB20</EncryptedPassword>
+    <_PublishTargetUrl>ftp://files.000webhost.com/www.soaring-tailor.000webhostapp.com</_PublishTargetUrl>
+    <History>False|2023-08-25T21:32:20.7165046Z;False|2023-08-25T17:49:17.0697709+01:00;False|2023-08-25T17:47:28.2221815+01:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/01/2023 13:49:29</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/01/2023 13:49:29</publishTime>
+    </File>
+    <File Include="db.json">
+      <publishTime>08/25/2023 17:12:46</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.JsonPatch.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

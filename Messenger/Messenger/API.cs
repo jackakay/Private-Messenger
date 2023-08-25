@@ -13,7 +13,7 @@ namespace Messenger
 {
     public static class API
     {
-        public const string url = "https://localhost:7143/";
+        public const string url = "https://serverapi123.azurewebsites.net/";
 
 
         public static async Task<bool> loginAsync(string username, string password)
@@ -36,7 +36,7 @@ namespace Messenger
             @"}";
             request.AddStringBody(body, DataFormat.Json);
             RestResponse response = await client.ExecuteAsync(request);
-            Console.WriteLine(response.Content);
+            
             if (response.Content == @"""Success""")
             {
                 return true;

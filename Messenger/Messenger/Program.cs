@@ -80,7 +80,7 @@ namespace Messenger
            
                 while (true)
                 {
-                    int left = Console.CursorLeft;
+                    
                     Conversation convo = new Conversation();
                     convo = await API.loadMessages(user.user, user.password, friendName);
                     Clear(convo);
@@ -88,11 +88,14 @@ namespace Messenger
                     {
                         Console.WriteLine(msg.sender + " -> " + msg.content);
                     }
-
-                    Console.SetCursorPosition(0, HEIGHT);
-                    Console.Write("-> ");
-                    Console.SetCursorPosition(left, HEIGHT);
-                    Thread.Sleep(800);
+                
+                //Console.SetCursorPosition(0, HEIGHT);
+                    
+                Console.SetCursorPosition(0, HEIGHT);
+                Console.Write("->");
+                int left = Console.CursorLeft;
+                Console.SetCursorPosition(left, HEIGHT);
+                Thread.Sleep(500);
                 }
             
         }
@@ -181,12 +184,15 @@ namespace Messenger
             });
             thread.Start();
 
+            
+            
             Console.SetCursorPosition(3, HEIGHT);
             while (true)
             {
                 
                     string message = Console.ReadLine();
-
+                
+                
                     if (!String.IsNullOrEmpty(message))
                     {
                     string timestamp = DateTime.Now.ToString("hh:mm:ss tt");
@@ -197,7 +203,7 @@ namespace Messenger
                         {
                         Console.SetCursorPosition(0, HEIGHT);
                         Console.Write(new string(' ', Console.BufferWidth - Console.CursorLeft));
-                        Console.SetCursorPosition(3, HEIGHT);
+                        Console.SetCursorPosition(4, HEIGHT);
 
                         }
                         else
