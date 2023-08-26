@@ -15,6 +15,13 @@
       "friends": [
         "testuser"
       ]
+    },
+    {
+      "user": "chanz",
+      "password": "password",
+      "friends": [
+        "testuser"
+      ]
     }
   ],
   "conversations": [

@@ -25,6 +25,7 @@ namespace Server.Controllers
                         if (newlogin.friend == friend.user)
                         {
                             user.friends.Add(friend.user);
+                            Globals.db.conversations.Add(new Conversation { user1=newlogin.username, user2=friend.user, messages = new List<Message>() });
                             UpdateDB.Update(Globals.db);
                             success = true;
                         }
