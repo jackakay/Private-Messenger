@@ -16,6 +16,7 @@ namespace Messenger_GUI
     public partial class Main : Form
     {
         List<string> friends;
+        private int textboxlength = 0;
         public Main()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Messenger_GUI
 
 
 
-            
+
         }
 
         private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,8 +64,10 @@ namespace Messenger_GUI
             {
                 if (lastMessage != previouslastmessage || first)
                 {
-                    first = false;
 
+                    first = false;
+                    richTextBox1.Invoke(() => richTextBox1.SelectionStart = textboxlength);
+                    richTextBox1.Invoke(() => richTextBox1.ScrollToCaret());
 
                     convo = await API.loadMessages(Program.user, Program.pass, friend);
                     richTextBox1.Invoke(() => richTextBox1.Text = "");
@@ -73,6 +76,9 @@ namespace Messenger_GUI
                         richTextBox1.Invoke(() => richTextBox1.Text += msg.sender + " -> " + msg.content + "\n");
 
                     }
+                    richTextBox1.Invoke(() => richTextBox1.ScrollToCaret());
+
+                    richTextBox1.Invoke(() => richTextBox1.SelectionStart = textboxlength);
                     richTextBox1.Invoke(() => richTextBox1.ScrollToCaret());
 
                     previouslastmessage = lastMessage;
@@ -94,11 +100,30 @@ namespace Messenger_GUI
         private void button2_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+
             foreach (string friend in friends)
             {
 
                 listBox1.Items.Add(friend);
             }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private async void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                bool sent = await API.SendMessage(Program.user, Program.pass, textBox1.Text, friends[listBox1.SelectedIndex]);
+            }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            textboxlength = richTextBox1.Text.Length;
         }
     }
 }

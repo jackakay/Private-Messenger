@@ -53,6 +53,7 @@
             richTextBox1.Size = new Size(611, 353);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // textBox1
             // 
@@ -60,6 +61,8 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(500, 23);
             textBox1.TabIndex = 2;
+            textBox1.KeyDown += textBox1_KeyDown;
+            textBox1.KeyPress += textBox1_KeyPress;
             // 
             // button1
             // 
