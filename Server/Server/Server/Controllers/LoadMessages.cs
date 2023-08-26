@@ -16,9 +16,11 @@ namespace Server.Controllers
         {
             bool success = false;
             loginClass newlogin = new loginClass();
+            
             newlogin = JsonConvert.DeserializeObject<loginClass>(payload.ToString());
             foreach (User user in Globals.db.users)
             {
+                
                 if (newlogin.username == user.user && newlogin.password == user.password)
                 {
                     foreach (Conversation convo in Globals.db.conversations)

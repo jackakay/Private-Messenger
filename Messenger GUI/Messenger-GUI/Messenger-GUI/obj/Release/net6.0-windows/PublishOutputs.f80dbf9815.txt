@@ -1,0 +1,6 @@
+C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\bin\Release\net6.0-windows\app.publish\Messenger-GUI.exe
+C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\bin\Release\net6.0-windows\app.publish\Messenger-GUI.dll
+C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\bin\Release\net6.0-windows\app.publish\Messenger-GUI.runtimeconfig.json
+C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\bin\Release\net6.0-windows\app.publish\Messenger-GUI.pdb
+C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\bin\Release\net6.0-windows\app.publish\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\bin\Release\net6.0-windows\app.publish\Messenger-GUI.deps.json
