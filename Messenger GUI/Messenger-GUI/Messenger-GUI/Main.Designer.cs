@@ -34,15 +34,16 @@
             button1 = new Button();
             textBox2 = new TextBox();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 87);
+            listBox1.Location = new Point(12, 109);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 349);
+            listBox1.Size = new Size(120, 364);
             listBox1.TabIndex = 0;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -50,23 +51,23 @@
             // 
             richTextBox1.Location = new Point(138, 12);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(611, 353);
+            richTextBox1.Size = new Size(698, 432);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(138, 412);
+            textBox1.Location = new Point(138, 450);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(500, 23);
+            textBox1.Size = new Size(587, 23);
             textBox1.TabIndex = 2;
             textBox1.KeyDown += textBox1_KeyDown;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
             // button1
             // 
-            button1.Location = new Point(644, 410);
+            button1.Location = new Point(731, 450);
             button1.Name = "button1";
             button1.Size = new Size(105, 24);
             button1.TabIndex = 3;
@@ -92,11 +93,22 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(21, 71);
+            button3.Name = "button3";
+            button3.Size = new Size(100, 24);
+            button3.TabIndex = 6;
+            button3.Text = "Refresh friends";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(848, 486);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(textBox2);
             Controls.Add(button1);
@@ -118,5 +130,6 @@
         private Button button1;
         private TextBox textBox2;
         private Button button2;
+        private Button button3;
     }
 }

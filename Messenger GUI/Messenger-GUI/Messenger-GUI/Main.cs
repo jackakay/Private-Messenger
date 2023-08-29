@@ -27,7 +27,11 @@ namespace Messenger_GUI
         {
             friends = await API.getFriendsAsync(Program.user, Program.pass);
 
+            foreach (string friend in friends)
+            {
 
+                listBox1.Items.Add(friend);
+            }
 
 
 
@@ -95,16 +99,31 @@ namespace Messenger_GUI
         private async void button1_Click(object sender, EventArgs e)
         {
             bool sent = await API.SendMessage(Program.user, Program.pass, textBox1.Text, friends[listBox1.SelectedIndex]);
+            textBox1.Clear();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
 
-            foreach (string friend in friends)
+            if (!friends.Contains(textBox2.Text))
             {
+                listBox1.Items.Clear();
+                bool success = await API.AddFriend(Program.user, Program.pass, textBox2.Text);
+                if (!success) MessageBox.Show("Failure to add friend. Incorrect name or user doesnt exist.");
+                else
+                {
+                    friends.Add(textBox2.Text);
+                    bool firstMessage = await API.SendMessage(Program.user, Program.pass, "Hello! I just started this chat!", textBox2.Text);
+                }
+                foreach (string friend in friends)
+                {
 
-                listBox1.Items.Add(friend);
+                    listBox1.Items.Add(friend);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You already have " + textBox2.Text + " as a friend.");
             }
         }
 
@@ -124,6 +143,18 @@ namespace Messenger_GUI
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             textboxlength = richTextBox1.Text.Length;
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            friends = await API.getFriendsAsync(Program.user, Program.pass);
+
+            foreach (string friend in friends)
+            {
+
+                listBox1.Items.Add(friend);
+            }
         }
     }
 }

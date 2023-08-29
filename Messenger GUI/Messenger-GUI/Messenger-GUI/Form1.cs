@@ -26,5 +26,11 @@ namespace Messenger_GUI
                 MessageBox.Show("Fail login");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Create create = new Create();
+            create.Show();
+        }
     }
 }

@@ -27,5 +27,11 @@ namespace Messenger.Models
         public string content { get; set; }
         public string friend { get; set; }
     }
+    public class addFriend
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+        public string friend { get; set; }
+    }
 
 }

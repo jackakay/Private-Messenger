@@ -28,6 +28,7 @@ namespace Server.Controllers
                 else
                 {
                     success = false;
+                    break;
                 }
 
             }

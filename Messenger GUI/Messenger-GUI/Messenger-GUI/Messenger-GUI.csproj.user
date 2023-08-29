@@ -4,6 +4,9 @@
     <_LastSelectedProfileId>C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\Properties\PublishProfiles\ClickOnceProfile1.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
