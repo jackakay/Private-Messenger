@@ -5,7 +5,8 @@
       "password": "password",
       "friends": [
         "yo",
-        "chanz"
+        "chanz",
+        "jack"
       ]
     },
     {
@@ -20,6 +21,13 @@
       "password": "password",
       "friends": [
         "yo"
+      ]
+    },
+    {
+      "user": "jack",
+      "password": "password",
+      "friends": [
+        "testuser"
       ]
     }
   ],
@@ -200,6 +208,26 @@
           "content": "fff",
           "sender": "testuser",
           "reciever": "yo"
+        },
+        {
+          "content": "wagwan",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "so then",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "yooo",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "asgfaa",
+          "sender": "testuser",
+          "reciever": "yo"
         }
       ],
       "user1": "testuser",
@@ -273,6 +301,22 @@
       ],
       "user1": "testuser",
       "user2": "oliver"
+    },
+    {
+      "messages": [
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "jack",
+          "reciever": "testuser"
+        },
+        {
+          "content": "whats up dawg",
+          "sender": "jack",
+          "reciever": "testuser"
+        }
+      ],
+      "user1": "jack",
+      "user2": "testuser"
     }
   ]
 }

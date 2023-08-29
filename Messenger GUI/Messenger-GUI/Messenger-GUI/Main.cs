@@ -32,7 +32,7 @@ namespace Messenger_GUI
 
                 listBox1.Items.Add(friend);
             }
-
+            panel2.Hide();
 
 
 
@@ -50,7 +50,10 @@ namespace Messenger_GUI
                 LoadMessages(friend);
             });
             thread.Start();
-
+            Conversation convo = new Conversation();
+            convo = await API.loadMessages(Program.user, Program.pass, friend);
+            listBox2.Items.Add(convo.user1);
+            listBox2.Items.Add(convo.user2);
 
 
 
@@ -137,6 +140,7 @@ namespace Messenger_GUI
             if (e.KeyData == Keys.Enter)
             {
                 bool sent = await API.SendMessage(Program.user, Program.pass, textBox1.Text, friends[listBox1.SelectedIndex]);
+                textBox1.Clear();
             }
         }
 
@@ -155,6 +159,31 @@ namespace Messenger_GUI
 
                 listBox1.Items.Add(friend);
             }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            panel2.Show();
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel2.Hide();
+            panel1.Show();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //join group
         }
     }
 }

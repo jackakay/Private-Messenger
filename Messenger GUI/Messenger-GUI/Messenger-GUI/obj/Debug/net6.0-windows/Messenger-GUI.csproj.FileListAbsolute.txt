@@ -19,3 +19,4 @@ C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Mes
 C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\obj\Debug\net6.0-windows\Messenger-GUI.csproj.CopyComplete
 C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\obj\Debug\net6.0-windows\Messenger_GUI.Main.resources
 C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\obj\Debug\net6.0-windows\Messenger-GUI.csproj.Fody.CopyLocal.cache
+C:\Users\jackk\Desktop\Important\Programming\Private-Messenger\Messenger GUI\Messenger-GUI\Messenger-GUI\obj\Debug\net6.0-windows\Messenger_GUI.Create.resources
