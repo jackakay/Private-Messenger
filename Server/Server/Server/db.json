@@ -318,5 +318,39 @@
       "user1": "jack",
       "user2": "testuser"
     }
+  ],
+  "groups": [
+    {
+      "name": "Boys",
+      "users": [ "testuser", "yo", "oliver" ],
+      "messages": [
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        },
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        }
+      ]
+    },
+    {
+      "name": "Fellas",
+      "users": [ "testuser", "yo", "oliver" ],
+      "messages": [
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        },
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        }
+      ]
+    }
   ]
 }

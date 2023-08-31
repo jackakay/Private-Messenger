@@ -182,6 +182,7 @@
             button7.TabIndex = 6;
             button7.Text = "Refresh groups";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // listBox2
             // 

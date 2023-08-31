@@ -13,9 +13,15 @@ using System.Windows.Forms;
 
 namespace Messenger_GUI
 {
+    
+
+
     public partial class Main : Form
     {
+        bool groups = false;
         List<string> friends;
+        List<string> groupsList = new List<string>();
+        List<groups> groupList;
         private int textboxlength = 0;
         public Main()
         {
@@ -40,25 +46,81 @@ namespace Messenger_GUI
 
         private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool first = true;
-            string friend = friends[listBox1.SelectedIndex];
-
-            int index = listBox1.SelectedIndex;
-
-            Thread thread = new Thread(delegate ()
+            if (!groups)
             {
-                LoadMessages(friend);
-            });
-            thread.Start();
-            Conversation convo = new Conversation();
-            convo = await API.loadMessages(Program.user, Program.pass, friend);
-            listBox2.Items.Add(convo.user1);
-            listBox2.Items.Add(convo.user2);
+                bool first = true;
+                string friend = friends[listBox1.SelectedIndex];
 
+                int index = listBox1.SelectedIndex;
+
+                Thread thread = new Thread(delegate ()
+                {
+                    LoadMessages(friend);
+                });
+                thread.Start();
+                Conversation convo = new Conversation();
+                convo = await API.loadMessages(Program.user, Program.pass, friend);
+                listBox2.Items.Add(convo.user1);
+                listBox2.Items.Add(convo.user2);
+            }
+            else
+            {
+                listBox2.Items.Clear();
+                string groupName = groupList[listBox1.SelectedIndex].name;
+                Thread thread = new Thread(delegate ()
+                {
+                    LoadGroup(groupName);
+                });
+                thread.Start();
+                foreach(string username in groupList[listBox1.SelectedIndex].users)
+                {
+                    listBox2.Items.Add(username);
+                }
+            }
 
 
         }
 
+        private async void LoadGroup(string name)
+        {
+            bool first = true;
+            groups groups = new groups();
+            groups = await API.GetGroup(Program.user, Program.pass, name);
+            string lastMessage = groups.messages.Last().content;
+            string previouslastmessage = lastMessage;
+
+            while (true)
+            {
+
+                if (lastMessage != previouslastmessage || first)
+                {
+
+                    first = false;
+                    richTextBox1.Invoke(() => richTextBox1.SelectionStart = textboxlength);
+                    richTextBox1.Invoke(() => richTextBox1.ScrollToCaret());
+
+                    groups = await API.GetGroup(Program.user, Program.pass, name);
+                    richTextBox1.Invoke(() => richTextBox1.Text = "");
+                    foreach (Messenger.Models.Message msg in groups.messages)
+                    {
+                        richTextBox1.Invoke(() => richTextBox1.Text += msg.sender + " -> " + msg.content + "\n");
+
+                    }
+                    richTextBox1.Invoke(() => richTextBox1.ScrollToCaret());
+
+                    richTextBox1.Invoke(() => richTextBox1.SelectionStart = textboxlength);
+                    richTextBox1.Invoke(() => richTextBox1.ScrollToCaret());
+
+                    previouslastmessage = lastMessage;
+                }
+                else
+                {
+                    groups = await API.GetGroup(Program.user, Program.pass, name);
+                    lastMessage = groups.messages.Last().content;
+                }
+
+            }
+        }
         private async void LoadMessages(string friend)
         {
             bool first = true;
@@ -69,6 +131,7 @@ namespace Messenger_GUI
             Conversation lastconvo = convo;
             while (true)
             {
+
                 if (lastMessage != previouslastmessage || first)
                 {
 
@@ -166,11 +229,16 @@ namespace Messenger_GUI
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private async void button5_Click(object sender, EventArgs e)
         {
-
+            groupList = await API.GetGroups(Program.user, Program.pass);
+            listBox1.Items.Clear();
+            foreach(groups group in groupList)
+            {
+                listBox1.Items.Add(group.name);
+            }
             panel2.Show();
-
+            groups = true;
 
         }
 
@@ -178,12 +246,17 @@ namespace Messenger_GUI
         {
             panel2.Hide();
             panel1.Show();
-
+            groups = false;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             //join group
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //refresh group
         }
     }
 }

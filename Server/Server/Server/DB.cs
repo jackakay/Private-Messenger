@@ -108,8 +108,9 @@ namespace Server
 
     public class Root
     {
-        public List<User> users { get; set; }
-        public List<Conversation> conversations { get; set; }
+        public List<User>? users { get; set; }
+        public List<Conversation>? conversations { get; set; }
+        public List<Groups>? groups { get; set; }
     }
 
     public class User
@@ -125,6 +126,13 @@ namespace Server
         public string password { get; set; }
         public string friend { get; set; }
     }
+
+    public class getgroup
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+        public string groupName { get; set; }
+    }
     public class message
     {
         public string username { get; set; }
@@ -133,4 +141,10 @@ namespace Server
         public string friend { get; set; }
     }
 
+    public class Groups
+    {
+        public List<Message>? messages { get; set; }
+        public List<string> users { get; set; }
+        public string name { get; set; } 
+    }
 }

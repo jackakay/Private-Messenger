@@ -196,5 +196,75 @@ namespace Messenger_GUI
             }
         }
 
+
+        public static async Task<groups> GetGroup(string username, string password, string name)
+        {
+            var options = new RestClientOptions(url)
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/api/GetGroup?Content-Type=Application/json", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            var body = @"{
+" + "\n" +
+             @"    ""username"":" + '"' + username + '"' + ","
+  + "\n" +
+             @"    ""password"":" + '"' + password + '"' + ","
+              + "\n" +
+             @"    ""name"":" + '"' + name + '"' + 
+
+
+             @"}";
+            request.AddStringBody(body, DataFormat.Json);
+            RestResponse response = await client.ExecuteAsync(request);
+            Console.WriteLine(response.Content);
+            if (response.Content != @"""Fail""")
+            {
+                string json = response.Content;
+                json = json.Substring(1, response.Content.Length - 2).Replace("/", string.Empty).Replace(@"\", string.Empty);
+                groups groups = JsonConvert.DeserializeObject<groups>(json);
+                
+                return groups;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static async Task<List<groups>> GetGroups(string username, string password)
+        {
+            var options = new RestClientOptions(url)
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/api/GetGroups?Content-Type=Application/json", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            var body = @"{
+" + "\n" +
+             @"    ""username"":" + '"' + username + '"' + ","
+  + "\n" +
+             @"    ""password"":" + '"' + password + '"' + 
+
+
+             @"}";
+            request.AddStringBody(body, DataFormat.Json);
+            RestResponse response = await client.ExecuteAsync(request);
+            Console.WriteLine(response.Content);
+            if (response.Content != @"""Fail""")
+            {
+
+
+                string json = response.Content;
+                json = json.Substring(1, response.Content.Length - 2).Replace("/", string.Empty).Replace(@"\", string.Empty);
+                List<groups> group = JsonConvert.DeserializeObject<List<groups>>(json);
+                return group;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
