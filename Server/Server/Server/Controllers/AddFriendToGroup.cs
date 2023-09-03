@@ -6,10 +6,10 @@ namespace Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SendGroupMessage : Controller
+    public class AddFriendToGroup : Controller
     {
         [HttpPost]
-        public IActionResult SendMessage(JObject payload)
+        public IActionResult AddToGroup(JObject payload)
         {
             bool success = false;
             string json = "";
@@ -21,11 +21,7 @@ namespace Server.Controllers
                 {
                     if(group.name == login.groupName)
                     {
-                        Message msg = new Message();
-                        msg.sender = login.username;
-                        msg.content = login.message;
-                        group.messages.Add(msg);
-                        success = true;
+                        group.users.Add(login.message);
                         UpdateDB.Update(Globals.db);
                     }
                 }

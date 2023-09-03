@@ -266,5 +266,99 @@ namespace Messenger_GUI
                 return null;
             }
         }
+
+        public static async Task<bool> AddUserToGroup(string username, string password,string friend, string groupName)
+        {
+            var options = new RestClientOptions(url)
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/api/AddFriendToGroup?Content-Type=Application/json", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            var body = @"{
+" + "\n" +
+             @"    ""username"":" + '"' + username + '"' + ","
+  + "\n" +
+             @"    ""password"":" + '"' + password + '"' + "," +
+             @"    ""message"":" + '"' + friend + '"' +
+             @"    ""groupName"":" + '"' + groupName + '"' +
+
+
+             @"}";
+            request.AddStringBody(body, DataFormat.Json);
+            RestResponse response = await client.ExecuteAsync(request);
+            Console.WriteLine(response.Content);
+            if (response.Content == @"""Success""")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static async Task<bool> SendGroupMessage(string username, string password, string msg, string group)
+        {
+            var options = new RestClientOptions(url)
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/api/SendGroupMessage?Content-Type=Application/json", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            var body = @"{
+" + "\n" +
+             @"    ""username"":" + '"' + username + '"' + ","
+  + "\n" +
+             @"    ""password"":" + '"' + password + '"' + "," +
+             @"    ""message"":" + '"' + msg + '"' + "," +
+             @"    ""groupName"":" + '"' + group + '"' +
+
+
+             @"}";
+            request.AddStringBody(body, DataFormat.Json);
+            RestResponse response = await client.ExecuteAsync(request);
+            Console.WriteLine(response.Content);
+            if (response.Content == @"""Success""")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static async Task<bool> RemoveFriendFromGroup(string username, string password, string friend, string group)
+        {
+            var options = new RestClientOptions(url)
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/api/RemoveFriendFromGroup?Content-Type=Application/json", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            var body = @"{
+" + "\n" +
+             @"    ""username"":" + '"' + username + '"' + ","
+  + "\n" +
+             @"    ""password"":" + '"' + password + '"' + "," +
+             @"    ""message"":" + '"' + friend + '"' +
+             @"    ""groupName"":" + '"' + group + '"' +
+
+
+             @"}";
+            request.AddStringBody(body, DataFormat.Json);
+            RestResponse response = await client.ExecuteAsync(request);
+            Console.WriteLine(response.Content);
+            if (response.Content == @"""Success""")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

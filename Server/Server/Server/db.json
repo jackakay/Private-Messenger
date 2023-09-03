@@ -321,8 +321,6 @@
   ],
   "groups": [
     {
-      "name": "Boys",
-      "users": [ "testuser", "yo", "oliver" ],
       "messages": [
         {
           "content": "Hello! I just started this chat!",
@@ -333,12 +331,26 @@
           "content": "Hello! I just started this chat!",
           "sender": "testuser",
           "reciever": "oliver"
+        },
+        {
+          "content": "a",
+          "sender": "testuser",
+          "reciever": null
+        },
+        {
+          "content": "yo yo yo",
+          "sender": "testuser",
+          "reciever": null
         }
-      ]
+      ],
+      "users": [
+        "testuser",
+        "yo",
+        "oliver"
+      ],
+      "name": "Boys"
     },
     {
-      "name": "Fellas",
-      "users": [ "testuser", "yo", "oliver" ],
       "messages": [
         {
           "content": "Hello! I just started this chat!",
@@ -350,7 +362,13 @@
           "sender": "testuser",
           "reciever": "oliver"
         }
-      ]
+      ],
+      "users": [
+        "testuser",
+        "yo",
+        "oliver"
+      ],
+      "name": "Fellas"
     }
   ]
 }

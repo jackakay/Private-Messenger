@@ -6,7 +6,7 @@ namespace Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SendGroupMessage : Controller
+    public class RemoveFriendFromGroup : Controller
     {
         [HttpPost]
         public IActionResult SendMessage(JObject payload)
@@ -21,12 +21,9 @@ namespace Server.Controllers
                 {
                     if(group.name == login.groupName)
                     {
-                        Message msg = new Message();
-                        msg.sender = login.username;
-                        msg.content = login.message;
-                        group.messages.Add(msg);
-                        success = true;
+                        group.users.Remove(login.message);
                         UpdateDB.Update(Globals.db);
+                        success = true;
                     }
                 }
             }

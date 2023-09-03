@@ -160,7 +160,7 @@
             // 
             textBox3.Location = new Point(15, 3);
             textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Group code";
+            textBox3.PlaceholderText = "Username";
             textBox3.Size = new Size(100, 23);
             textBox3.TabIndex = 4;
             // 
@@ -170,7 +170,7 @@
             button6.Name = "button6";
             button6.Size = new Size(100, 24);
             button6.TabIndex = 5;
-            button6.Text = "Join group";
+            button6.Text = "Add user";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
@@ -180,7 +180,7 @@
             button7.Name = "button7";
             button7.Size = new Size(100, 24);
             button7.TabIndex = 6;
-            button7.Text = "Refresh groups";
+            button7.Text = "Remove user";
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
             // 
@@ -190,7 +190,7 @@
             listBox2.ItemHeight = 15;
             listBox2.Location = new Point(851, 28);
             listBox2.Name = "listBox2";
-            listBox2.Size = new Size(120, 454);
+            listBox2.Size = new Size(120, 439);
             listBox2.TabIndex = 10;
             // 
             // label1

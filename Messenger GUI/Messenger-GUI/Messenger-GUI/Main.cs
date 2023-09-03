@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Messenger_GUI
 {
-    
+
 
 
     public partial class Main : Form
@@ -72,7 +72,7 @@ namespace Messenger_GUI
                     LoadGroup(groupName);
                 });
                 thread.Start();
-                foreach(string username in groupList[listBox1.SelectedIndex].users)
+                foreach (string username in groupList[listBox1.SelectedIndex].users)
                 {
                     listBox2.Items.Add(username);
                 }
@@ -164,7 +164,14 @@ namespace Messenger_GUI
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            bool sent = await API.SendMessage(Program.user, Program.pass, textBox1.Text, friends[listBox1.SelectedIndex]);
+            if (!groups)
+            {
+                bool sent = await API.SendMessage(Program.user, Program.pass, textBox1.Text, friends[listBox1.SelectedIndex]);
+            }
+            else
+            {
+                bool sent = await API.SendGroupMessage(Program.user, Program.pass, textBox1.Text, groupList[listBox1.SelectedIndex].name);
+            }
             textBox1.Clear();
         }
 
@@ -233,7 +240,7 @@ namespace Messenger_GUI
         {
             groupList = await API.GetGroups(Program.user, Program.pass);
             listBox1.Items.Clear();
-            foreach(groups group in groupList)
+            foreach (groups group in groupList)
             {
                 listBox1.Items.Add(group.name);
             }
@@ -249,14 +256,18 @@ namespace Messenger_GUI
             groups = false;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private async void button6_Click(object sender, EventArgs e)
         {
-            //join group
+            //add to group
+            bool success = await API.AddUserToGroup(Program.user, Program.pass, textBox3.Text, groupList[listBox1.SelectedIndex].name);
+            if (!success) MessageBox.Show("Failure! User does not exist.");
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private async void button7_Click(object sender, EventArgs e)
         {
-            //refresh group
+            //remove from group
+            bool success = await API.RemoveFriendFromGroup(Program.user, Program.pass, textBox3.Text, groupList[listBox1.SelectedIndex].name);
+            if (!success) MessageBox.Show("Failure! User does not exist.");
         }
     }
 }
