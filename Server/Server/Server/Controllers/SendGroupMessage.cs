@@ -24,6 +24,7 @@ namespace Server.Controllers
                         Message msg = new Message();
                         msg.sender = login.username;
                         msg.content = login.message;
+                        msg.reciever = "";
                         group.messages.Add(msg);
                         success = true;
                         UpdateDB.Update(Globals.db);

@@ -218,6 +218,7 @@
             Controls.Add(listBox1);
             Name = "Main";
             Text = "Main";
+            FormClosed += Main_FormClosed;
             Load += Main_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

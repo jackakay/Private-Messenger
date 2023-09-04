@@ -36,7 +36,7 @@ namespace Messenger.Models
 
     public class groups
     {
-        public List<Message>? messages { get; set; }
+        public List<Message> messages { get; set; }
         public List<string> users { get; set; }
         public string name { get; set; }
     }

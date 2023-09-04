@@ -112,6 +112,7 @@ namespace Messenger_GUI
                     richTextBox1.Invoke(() => richTextBox1.ScrollToCaret());
 
                     previouslastmessage = lastMessage;
+                    Thread.Sleep(10);
                 }
                 else
                 {
@@ -171,7 +172,7 @@ namespace Messenger_GUI
             else
             {
                 bool sent = await API.SendGroupMessage(Program.user, Program.pass, textBox1.Text, groupList[listBox1.SelectedIndex].name);
-                LoadGroup(groupList[listBox1.SelectedIndex].name);
+
             }
             textBox1.Clear();
         }
@@ -242,12 +243,15 @@ namespace Messenger_GUI
             groups = true;
             groupList = await API.GetGroups(Program.user, Program.pass);
             listBox1.Items.Clear();
-            foreach (groups group in groupList)
+            if (groupList.Count > 0)
             {
-                listBox1.Items.Add(group.name);
+                foreach (groups group in groupList)
+                {
+                    listBox1.Items.Add(group.name);
+                }
             }
             panel2.Show();
-            
+
 
         }
 
@@ -278,6 +282,11 @@ namespace Messenger_GUI
             //remove from group
             bool success = await API.RemoveFriendFromGroup(Program.user, Program.pass, textBox3.Text, groupList[listBox1.SelectedIndex].name);
             if (!success) MessageBox.Show("Failure! User does not exist.");
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
         }
     }
 }

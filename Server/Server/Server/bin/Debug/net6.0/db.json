@@ -228,6 +228,11 @@
           "content": "asgfaa",
           "sender": "testuser",
           "reciever": "yo"
+        },
+        {
+          "content": "f",
+          "sender": "testuser",
+          "reciever": "yo"
         }
       ],
       "user1": "testuser",
@@ -321,8 +326,6 @@
   ],
   "groups": [
     {
-      "name": "Boys",
-      "users": [ "testuser", "yo", "oliver" ],
       "messages": [
         {
           "content": "Hello! I just started this chat!",
@@ -333,12 +336,66 @@
           "content": "Hello! I just started this chat!",
           "sender": "testuser",
           "reciever": "oliver"
+        },
+        {
+          "content": "a",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "yo yo yo",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "a",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "asada",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "h",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "ggjmhjg",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "fasfa",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "a",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "asfasf",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "aa",
+          "sender": "testuser",
+          "reciever": ""
         }
-      ]
+      ],
+      "users": [
+        "testuser",
+        "yo",
+        "oliver"
+      ],
+      "name": "Boys"
     },
     {
-      "name": "Fellas",
-      "users": [ "testuser", "yo", "oliver" ],
       "messages": [
         {
           "content": "Hello! I just started this chat!",
@@ -350,7 +407,13 @@
           "sender": "testuser",
           "reciever": "oliver"
         }
-      ]
+      ],
+      "users": [
+        "testuser",
+        "yo",
+        "oliver"
+      ],
+      "name": "Fellas"
     }
   ]
 }
