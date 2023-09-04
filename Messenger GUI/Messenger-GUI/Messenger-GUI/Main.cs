@@ -171,6 +171,7 @@ namespace Messenger_GUI
             else
             {
                 bool sent = await API.SendGroupMessage(Program.user, Program.pass, textBox1.Text, groupList[listBox1.SelectedIndex].name);
+                LoadGroup(groupList[listBox1.SelectedIndex].name);
             }
             textBox1.Clear();
         }
@@ -238,6 +239,7 @@ namespace Messenger_GUI
 
         private async void button5_Click(object sender, EventArgs e)
         {
+            groups = true;
             groupList = await API.GetGroups(Program.user, Program.pass);
             listBox1.Items.Clear();
             foreach (groups group in groupList)
@@ -245,15 +247,23 @@ namespace Messenger_GUI
                 listBox1.Items.Add(group.name);
             }
             panel2.Show();
-            groups = true;
+            
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private async void button4_Click(object sender, EventArgs e)
         {
+            groups = false;
             panel2.Hide();
             panel1.Show();
-            groups = false;
+            listBox1.Items.Clear();
+            friends = await API.getFriendsAsync(Program.user, Program.pass);
+
+            foreach (string friend in friends)
+            {
+
+                listBox1.Items.Add(friend);
+            }
         }
 
         private async void button6_Click(object sender, EventArgs e)
