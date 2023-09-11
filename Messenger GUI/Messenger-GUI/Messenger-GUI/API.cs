@@ -16,6 +16,7 @@ namespace Messenger_GUI
     {
         //public const string url = "https://serverapi123.azurewebsites.net/";
         public const string url = "https://localhost:7143";
+        //public const string url = "https://dc18-81-103-198-207.ngrok.io";
 
 
         public static async Task<bool> loginAsync(string username, string password)
