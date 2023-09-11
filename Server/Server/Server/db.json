@@ -521,6 +521,11 @@
           "content": "asfdaf",
           "sender": "testuser",
           "reciever": ""
+        },
+        {
+          "content": "yoooo",
+          "sender": "testuser",
+          "reciever": ""
         }
       ],
       "users": [

@@ -29,6 +29,11 @@
       "friends": [
         "testuser"
       ]
+    },
+    {
+      "user": "haxor",
+      "password": "password",
+      "friends": []
     }
   ],
   "conversations": [
@@ -233,6 +238,21 @@
           "content": "f",
           "sender": "testuser",
           "reciever": "yo"
+        },
+        {
+          "content": "s",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "s",
+          "sender": "testuser",
+          "reciever": "yo"
+        },
+        {
+          "content": "ffdhjdf",
+          "sender": "testuser",
+          "reciever": "yo"
         }
       ],
       "user1": "testuser",
@@ -328,16 +348,6 @@
     {
       "messages": [
         {
-          "content": "Hello! I just started this chat!",
-          "sender": "testuser",
-          "reciever": "oliver"
-        },
-        {
-          "content": "Hello! I just started this chat!",
-          "sender": "testuser",
-          "reciever": "oliver"
-        },
-        {
           "content": "a",
           "sender": "testuser",
           "reciever": ""
@@ -386,6 +396,16 @@
           "content": "aa",
           "sender": "testuser",
           "reciever": ""
+        },
+        {
+          "content": "ffffff",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "a",
+          "sender": "testuser",
+          "reciever": ""
         }
       ],
       "users": [
@@ -398,7 +418,7 @@
     {
       "messages": [
         {
-          "content": "Hello! I just started this chat!",
+          "content": "wagwan!",
           "sender": "testuser",
           "reciever": "oliver"
         },
@@ -406,6 +426,101 @@
           "content": "Hello! I just started this chat!",
           "sender": "testuser",
           "reciever": "oliver"
+        },
+        {
+          "content": "sgd",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "shgdsgs",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "sss",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "hello",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "how are you",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "whats up bro",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "yoooooo",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "umm so then",
+          "sender": "yo",
+          "reciever": ""
+        },
+        {
+          "content": "yes now",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "so then this is oliver",
+          "sender": "yo",
+          "reciever": ""
+        },
+        {
+          "content": "so then this is oliver",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "so then",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "so then",
+          "sender": "oliver",
+          "reciever": ""
+        },
+        {
+          "content": "wassss",
+          "sender": "oliver",
+          "reciever": ""
+        },
+        {
+          "content": "so then this is oliver",
+          "sender": "oliver",
+          "reciever": ""
+        },
+        {
+          "content": "a",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "s",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "g",
+          "sender": "testuser",
+          "reciever": ""
+        },
+        {
+          "content": "asfdaf",
+          "sender": "testuser",
+          "reciever": ""
         }
       ],
       "users": [

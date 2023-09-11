@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Messenger_GUI
 {
@@ -275,6 +276,8 @@ namespace Messenger_GUI
             //add to group
             bool success = await API.AddUserToGroup(Program.user, Program.pass, textBox3.Text, groupList[listBox1.SelectedIndex].name);
             if (!success) MessageBox.Show("Failure! User does not exist.");
+
+            
         }
 
         private async void button7_Click(object sender, EventArgs e)
@@ -282,6 +285,8 @@ namespace Messenger_GUI
             //remove from group
             bool success = await API.RemoveFriendFromGroup(Program.user, Program.pass, textBox3.Text, groupList[listBox1.SelectedIndex].name);
             if (!success) MessageBox.Show("Failure! User does not exist.");
+
+            
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
