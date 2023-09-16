@@ -6,7 +6,8 @@
       "friends": [
         "yo",
         "chanz",
-        "jack"
+        "jack",
+        "oliver"
       ]
     },
     {
@@ -20,7 +21,8 @@
       "user": "oliver",
       "password": "password",
       "friends": [
-        "yo"
+        "yo",
+        "testuser"
       ]
     },
     {
@@ -274,6 +276,16 @@
           "content": "Hello! I just started this chat!",
           "sender": "testuser",
           "reciever": "oliver"
+        },
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        },
+        {
+          "content": "hello oliver",
+          "sender": "testuser",
+          "reciever": "oliver"
         }
       ],
       "user1": "testuser",
@@ -295,6 +307,16 @@
           "content": "Hello! I just started this chat!",
           "sender": "testuser",
           "reciever": "oliver"
+        },
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        },
+        {
+          "content": "hello oliver",
+          "sender": "testuser",
+          "reciever": "oliver"
         }
       ],
       "user1": "testuser",
@@ -311,6 +333,16 @@
           "content": "Hello! I just started this chat!",
           "sender": "testuser",
           "reciever": "oliver"
+        },
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        },
+        {
+          "content": "hello oliver",
+          "sender": "testuser",
+          "reciever": "oliver"
         }
       ],
       "user1": "testuser",
@@ -320,6 +352,16 @@
       "messages": [
         {
           "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        },
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        },
+        {
+          "content": "hello oliver",
           "sender": "testuser",
           "reciever": "oliver"
         }
@@ -342,6 +384,22 @@
       ],
       "user1": "jack",
       "user2": "testuser"
+    },
+    {
+      "messages": [
+        {
+          "content": "Hello! I just started this chat!",
+          "sender": "testuser",
+          "reciever": "oliver"
+        },
+        {
+          "content": "hello oliver",
+          "sender": "testuser",
+          "reciever": "oliver"
+        }
+      ],
+      "user1": "testuser",
+      "user2": "oliver"
     }
   ],
   "groups": [

@@ -61,6 +61,7 @@ namespace Messenger_GUI
                 thread.Start();
                 Conversation convo = new Conversation();
                 convo = await API.loadMessages(Program.user, Program.pass, friend);
+                listBox2.Items.Clear();
                 listBox2.Items.Add(convo.user1);
                 listBox2.Items.Add(convo.user2);
             }

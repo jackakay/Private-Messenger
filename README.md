@@ -10,5 +10,12 @@ When demonstrating how both the client and the server work I will use a single f
 ##Video of it working
 https://uploadi.ng/yaCCv1bA
 
+## GUI
+Private chat
+![GUI](https://cdn.upload.systems/uploads/tzhIWDy3.png)
+Group chat 
+![GUI](https://cdn.upload.systems/uploads/VBaDdPCO.png)
+
 ## Disclaimer
 Nothing is encrypted yet, i plan to do that later, this server has to be hosted locally as i cant figure out how to host it locally.
+
